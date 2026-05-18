@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git -C /xpal-src/arjunvenkatraman log --oneline -5)"
+    ]
+  }
+}
