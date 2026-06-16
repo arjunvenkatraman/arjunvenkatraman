@@ -4,7 +4,8 @@
       "Bash(git -C /xpal-src/arjunvenkatraman log --oneline -5)",
       "Bash(git -C /xpal-src/arjunvenkatraman status)",
       "Bash(git -C /xpal-src/arjunvenkatraman log --oneline -3)",
-      "Bash(git *)"
+      "Bash(git *)",
+      "WebFetch(domain:arjunvenkatraman.blogspot.com)"
     ]
   }
 }
