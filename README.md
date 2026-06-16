@@ -19,3 +19,5 @@ The student watched the head chase the empty board. "Then when the head reaches 
 "— it does not collide. It catches up. The eater arrives at the eaten and finds they were never two."
 
 The student bowed and left.
+
+[Blog (https://github.com/arjunvenkatraman/arjunvenkatraman/tree/main/blog)]
