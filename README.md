@@ -20,4 +20,4 @@ The student watched the head chase the empty board. "Then when the head reaches 
 
 The student bowed and left.
 
-[Blog (https://github.com/arjunvenkatraman/arjunvenkatraman/tree/main/blog)]
+[Blog](https://github.com/arjunvenkatraman/arjunvenkatraman/tree/main/blog)
