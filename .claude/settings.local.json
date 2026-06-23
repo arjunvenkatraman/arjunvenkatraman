@@ -5,7 +5,9 @@
       "Bash(git -C /xpal-src/arjunvenkatraman status)",
       "Bash(git -C /xpal-src/arjunvenkatraman log --oneline -3)",
       "Bash(git *)",
-      "WebFetch(domain:arjunvenkatraman.blogspot.com)"
+      "WebFetch(domain:arjunvenkatraman.blogspot.com)",
+      "Bash(mkdir -p /xpal-src/arjunvenkatraman/blog/ramal)",
+      "Bash(quarto create-project *)"
     ]
   }
 }
