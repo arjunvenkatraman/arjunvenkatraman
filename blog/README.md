@@ -6,6 +6,7 @@ Blog posts from [arjunvenkatraman.blogspot.com](https://arjunvenkatraman.blogspo
 
 | Date | Title |
 |------|-------|
+| 2026-06-30 | [The Snake That Eats Its Own Tail](2026-06-30-the-snake-that-eats-its-own-tail.md) |
 | 2026-04-18 | [Notes at The C/Si (See/See) Boundary #1](2026-04-18-notes-at-csi-boundary-1.md) |
 | 2012-07-13 | [Language](2012-07-13-language.md) |
 | 2012-05-27 | [Sickness](2012-05-27-sickness.md) |
