@@ -24,7 +24,7 @@ PAD = 8
 SVG_W = PAD * 2 + COLS * STEP - GAP
 SVG_H = PAD * 2 + ROWS * STEP - GAP
 
-MAX_FRAMES   = 400
+MAX_FRAMES   = 800
 INTERVAL_MS  = 160   # ms per generation
 
 
