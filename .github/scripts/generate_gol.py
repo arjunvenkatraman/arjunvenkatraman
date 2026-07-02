@@ -10,8 +10,15 @@ Generate a Game of Life SVG animation from GitHub contributions.
 
 import os, sys, json, math, random, urllib.request
 
-COLS, ROWS = 52, 7
-CELL, GAP = 14, 3
+# total grid the GoL runs on — bigger than the contribution footprint
+COLS, ROWS = 72, 18
+
+# contribution data occupies a centred 52×7 window inside the grid
+CONTRIB_COLS, CONTRIB_ROWS = 52, 7
+CONTRIB_COL0 = (COLS - CONTRIB_COLS) // 2   # = 10
+CONTRIB_ROW0 = (ROWS - CONTRIB_ROWS) // 2   # = 5
+
+CELL, GAP = 9, 2
 STEP = CELL + GAP
 PAD = 8
 SVG_W = PAD * 2 + COLS * STEP - GAP
@@ -52,9 +59,9 @@ def fetch_contributions(username: str, token: str):
     with urllib.request.urlopen(req, timeout=30) as r:
         data = json.loads(r.read())
     cal = data['data']['user']['contributionsCollection']['contributionCalendar']
-    grid = [[0] * ROWS for _ in range(COLS)]
-    for ci, week in enumerate(cal['weeks'][:COLS]):
-        for ri, day in enumerate(week['contributionDays'][:ROWS]):
+    grid = [[0] * CONTRIB_ROWS for _ in range(CONTRIB_COLS)]
+    for ci, week in enumerate(cal['weeks'][:CONTRIB_COLS]):
+        for ri, day in enumerate(week['contributionDays'][:CONTRIB_ROWS]):
             grid[ci][ri] = day['contributionCount']
     return cal['totalContributions'], grid
 
@@ -78,18 +85,19 @@ def simulate(contrib_grid):
     age  = [0] * N   # consecutive gens alive (capped at 5)
     heat = [0] * N   # contribution intensity 1–4 (static, never changes)
 
-    # seed from contributions
-    for c in range(COLS):
-        for r in range(ROWS):
-            v = contrib_grid[c][r]
+    # seed from contributions into the centred window
+    for cc in range(CONTRIB_COLS):
+        for cr in range(CONTRIB_ROWS):
+            v = contrib_grid[cc][cr]
             if v > 0:
-                i = _idx(c, r)
+                i = _idx(CONTRIB_COL0 + cc, CONTRIB_ROW0 + cr)
                 grid[i] = 1
                 age[i]  = 1
                 heat[i] = min(4, max(1, math.ceil(v / 3)))
 
-    # plant initial glider
+    # plant gliders in the empty border — one top-left, one bottom-right
     plant_glider(grid, age, 1, 1)
+    plant_glider(grid, age, COLS - 6, ROWS - 5)
 
     frames   = []   # list of (grid_snapshot, age_snapshot)
     cooldown = 0
